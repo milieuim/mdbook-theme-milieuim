@@ -15,7 +15,7 @@ window.hljs = {
     const shiki = await this.shiki
     codeElement.parentElement.outerHTML = await shiki.codeToHtml(codeElement.innerText, {
       lang,
-      theme: 'one-light',
+      theme: 'rose-pine-dawn',
     })
   },
 }
