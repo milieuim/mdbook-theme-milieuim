@@ -1,0 +1,446 @@
+/* Based on Rose Pine Dawn Shiki theme and mdbook structure */
+/* https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html */
+
+:root {
+    --rose-pine-dawn-base: #faf4ed; /* editor.background, sideBar.background */
+    --rose-pine-dawn-text: #575279; /* editor.foreground, foreground */
+    --rose-pine-dawn-love: #b4637a; /* charts.red, debugIcon.stopForeground, editorError.foreground, gitDecoration.conflictingResourceForeground, gitDecoration.stageDeletedResourceForeground, invalid, list.errorForeground, listFilterWidget.noMatchesOutline, problemsErrorIcon.foreground, terminal.ansiRed, terminal.ansiBrightRed */
+    --rose-pine-dawn-gold: #ea9d34; /* charts.yellow, gitDecoration.submoduleResourceForeground, gitDecoration.untrackedResourceForeground, list.warningForeground, notificationsWarningIcon.foreground, problemsWarningIcon.foreground, terminal.ansiYellow, terminal.ansiBrightYellow, textPreformat.foreground */
+    --rose-pine-dawn-pine: #286983; /* charts.green, extensionIcon.preReleaseForeground, editorLightBulb.foreground, terminal.ansiGreen, terminal.ansiBrightGreen, keyword, storage.type, storage.modifier, punctuation.accessor, meta.import, meta.export */
+    --rose-pine-dawn-foam: #56949f; /* charts.blue, diffEditor.insertedLineBackground, diffEditor.insertedTextBackground, editorGutter.addedBackground, editorInfo.foreground, notificationsInfoIcon.foreground, problemsInfoIcon.foreground, terminal.ansiBlue, terminal.ansiBrightBlue, markup.inserted.diff, entity.name.section, entity.name.tag, entity.name.namespace, entity.name.type, support, meta.property-name.css */
+    --rose-pine-dawn-iris: #907aa9; /* charts.purple, debugIcon.*, extensionBadge.remoteBackground, extensionIcon.verifiedForeground, keybindingLabel.foreground, list.deemphasizedForeground, list.invalidItemForeground (sometimes), list.warningForeground (sometimes), notificationLink.foreground, pickerGroup.foreground, statusBar.debuggingBackground, terminal.ansiMagenta, terminal.ansiBrightMagenta, entity.other.attribute-name, entity.other.inherited-class, meta.diff.range, variable.parameter, textLink.foreground */
+    --rose-pine-dawn-rose: #d7827e; /* activityBarBadge.background, badge.background, breadcrumb.activeSelectionForeground, button.background, charts.orange, editorCodeLens.foreground, editorGutter.modifiedBackground, editorLink.activeForeground, extensionButton.prominentBackground, extensionIcon.starForeground, gitDecoration.modifiedResourceForeground, inputOption.activeForeground, list.filterMatchBorder, list.highlightForeground, ports.iconRunningProcessForeground, progressBar.background, settings.modifiedItemIndicator, terminal.ansiCyan, terminal.ansiBrightCyan, variable, variable.other (sometimes), constant.numeric, constant.language, entity.name, variable */
+    --rose-pine-dawn-overlay: #e6e1cf; /* This color isn't explicitly in the Shiki colors but derived from Alacritty. Let's use f2e9e1 (base) or faf4ed (background) */
+    --rose-pine-dawn-muted: #9893a5; /* breadcrumb.foreground, debugIcon.breakpoint*, editorCursor.foreground, editorWhitespace.foreground, git.blame.editorDecorationForeground, gitDecoration.ignoredResourceForeground, scrollbarSlider.background, scrollbarSlider.activeBackground, scrollbarSlider.hoverBackground, tab.lastPinnedBorder, terminalCursor.foreground, comment, punctuation.definition.tag */
+    --rose-pine-dawn-subtle: #797593; /* activityBar.inactiveForeground, banner.iconForeground, breadcrumb.focusForeground, debugIcon.continue-stepOver, descriptionForeground, editor.inlineValuesForeground, editorGhostText.foreground, editorHint.foreground, editorHoverWidget.foreground, gitDecoration.deletedResourceForeground, icon.foreground, input.placeholderForeground, list.deemphasizedForeground, list.errorForeground (sometimes), list.invalidItemForeground (sometimes), list.warningForeground (sometimes), notificationCenterHeader.foreground, panelTitle.inactiveForeground, peekViewTitleDescription.foreground, quickInput.foreground, sideBar.foreground, statusBar.foreground, statusBar.noFolderForeground, symbolIcon.*, tab.inactiveForeground, textSeparator.foreground, titleBar.activeForeground, titleBar.inactiveForeground, tree.indentGuidesStroke, invalid.deprecated, punctuation */
+    --rose-pine-dawn-highlightHigh: #817c9c; /* Alacritty cursor */
+    --rose-pine-dawn-highlightMed: #67628a; /* Alacritty selection */
+    --rose-pine-dawn-surface: #f2e9e1; /* Alacritty hints/footer background. Shiki uses #fffaf3 for many widget backgrounds. */
+    --rose-pine-dawn-light: #fffaf3; /* banner.background, breadcrumbPicker.background, button.secondaryBackground, checkbox.background, debugExceptionWidget.background, dropdown.background, dropdown.listBackground, editorHoverWidget.background, inputValidation.*Background, keybindingTable.rowsBackground, list.dropBackground, list.inactiveSelectionBackground, listFilterWidget.background, menu.background, minimap.background, notificationCenterHeader.background, notifications.background, panel.background, panelSectionHeader.background, peekViewEditor.background, peekViewResult.background, quickInput.background, settings.*Background, sideBar.dropBackground, textBlockQuote.background, textCodeBlock.background, titleBar.inactiveBackground, walkThrough.embeddedEditorBackground, welcomePage.background */
+    --rose-pine-dawn-border: #f2e9e1; /* activityBar.dropBorder, debugToolBar.border, diffEditor.border, editorInfo.border, editorWidget.border, merge.border, peekView.border, peekViewTitle.background, keybindingLabel.*Border, listFilterWidget.outline, menu.selectionBorder, sideBarSectionHeader.border */
+    --rose-pine-dawn-faint-border: #6e6a8614; /* checkbox.border, debugExceptionWidget.border, dropdown.border, editor.selectionBackground, editor.selectionHighlightBackground, editor.snippet*HighlightBackground, editor.stackFrameHighlightBackground, editor.symbolHighlightBackground, editor.wordHighlightBackground, editor.wordHighlightStrongBackground, editorBracketPairGuide.background*, editorIndentGuide.background1, editorOverviewRuler.border, editorOverviewRuler.findMatchForeground, editorOverviewRuler.rangeHighlightForeground, editorOverviewRuler.selectionHighlightForeground, editorOverviewRuler.wordHighlightStrongForeground, focusBorder, input.border, list.activeSelectionBackground, list.focusOutline, menu.border, menu.selectionBackground, menubar.selectionBackground, menubar.selectionBorder, minimapSlider.background, notebook.cellBorderColor, notebook.focusedCellBackground, notebook.outputContainerBackgroundColor, notificationCenter.border, notificationToast.border, notifications.border, panelSection.dropBackground, peekViewEditor.matchHighlightBackground, peekViewResult.matchHighlightBackground, peekViewResult.selectionBackground, quickInputList.focusBackground, scrollbarSlider.background, searchEditor.findMatchBackground, selection.background, settings.focusedRowBorder, sideBarSectionHeader.border, statusBarItem.activeBackground, statusBarItem.hoverBackground, statusBarItem.prominentHoverBackground, tab.activeBackground, tab.hoverBackground, terminal.dropBackground, terminal.selectionBackground, textBlockQuote.border, toolbar.activeBackground, toolbar.hoverBackground */
+    --rose-pine-dawn-selection: #6e6a8614; /* editor.selectionBackground, list.activeSelectionBackground, peekViewResult.selectionBackground, quickInputList.focusBackground, scrollbarSlider.background, searchEditor.findMatchBackground, selection.background, terminal.selectionBackground */
+    --rose-pine-dawn-inactive-selection: #6e6a860d; /* editor.inactiveSelectionBackground, editor.rangeHighlightBackground, editor.lineHighlightBackground, list.hoverBackground, list.inactiveFocusBackground, menu.border, menubar.selectionBorder, tab.activeBackground */
+}
+
+.rose-pine-dawn.hljs {
+  color: var(--rose-pine-dawn-text);
+  background: var(--rose-pine-dawn-base);
+}
+
+/* General syntax highlighting classes based on Shiki tokenColors */
+.rose-pine-dawn .hljs-comment {
+  font-style: italic;
+  color: var(--rose-pine-dawn-muted);
+}
+
+.rose-pine-dawn .hljs-constant {
+  color: var(--rose-pine-dawn-pine);
+}
+
+.rose-pine-dawn .hljs-constant.hljs-numeric,
+.rose-pine-dawn .hljs-constant.hljs-language {
+  color: var(--rose-pine-dawn-rose);
+}
+
+.rose-pine-dawn .hljs-entity.hljs-name {
+    color: var(--rose-pine-dawn-rose);
+}
+
+.rose-pine-dawn .hljs-entity.hljs-name.hljs-section,
+.rose-pine-dawn .hljs-entity.hljs-name.hljs-tag,
+.rose-pine-dawn .hljs-entity.hljs-name.hljs-namespace,
+.rose-pine-dawn .hljs-entity.hljs-name.hljs-type {
+  color: var(--rose-pine-dawn-foam);
+}
+
+.rose-pine-dawn .hljs-entity.hljs-other.hljs-attribute-name,
+.rose-pine-dawn .hljs-entity.hljs-other.hljs-inherited-class {
+  font-style: italic;
+  color: var(--rose-pine-dawn-iris);
+}
+
+.rose-pine-dawn .hljs-invalid {
+  color: var(--rose-pine-dawn-love);
+}
+
+.rose-pine-dawn .hljs-invalid.hljs-deprecated {
+  color: var(--rose-pine-dawn-subtle);
+}
+
+
+.rose-pine-dawn .hljs-keyword {
+  color: var(--rose-pine-dawn-pine);
+}
+
+.rose-pine-dawn .hljs-markup.hljs-inserted.hljs-diff {
+  color: var(--rose-pine-dawn-foam);
+}
+
+.rose-pine-dawn .hljs-markup.hljs-deleted.hljs-diff {
+  color: var(--rose-pine-dawn-love);
+}
+
+.rose-pine-dawn .hljs-markup.hljs-heading {
+    font-weight: bold;
+}
+
+.rose-pine-dawn .hljs-strong { /* Assuming markup.bold.markdown maps to strong */
+    font-weight: bold;
+}
+
+.rose-pine-dawn .hljs-emphasis { /* Assuming markup.italic.markdown maps to emphasis */
+    font-style: italic;
+}
+
+
+.rose-pine-dawn .hljs-meta.hljs-diff.hljs-range {
+  color: var(--rose-pine-dawn-iris);
+}
+
+.rose-pine-dawn .hljs-meta.hljs-tag,
+.rose-pine-dawn .hljs-meta.hljs-brace { /* Added brace based on common highlighting */
+  color: var(--rose-pine-dawn-text);
+}
+
+/* Shiki has meta.import/export under keyword-like color, mapping to Pine */
+/* mdBook highlight.js might map these differently, keeping general keyword rule */
+
+/* Shiki has meta.directive.vue as italic Iris, mapping to emphasis Iris */
+.rose-pine-dawn .hljs-meta { /* General meta, adjust if needed */
+    color: var(--rose-pine-dawn-iris); /* Mapping to Iris as a common meta color */
+    font-style: italic; /* Based on meta.directive.vue */
+}
+
+
+.rose-pine-dawn .hljs-meta.hljs-property-name.hljs-css {
+  color: var(--rose-pine-dawn-foam);
+}
+
+.rose-pine-dawn .hljs-meta.hljs-property-value.hljs-css {
+  color: var(--rose-pine-dawn-gold);
+}
+
+.rose-pine-dawn .hljs-meta.hljs-tag.hljs-other.hljs-html {
+  color: var(--rose-pine-dawn-subtle);
+}
+
+.rose-pine-dawn .hljs-punctuation {
+  color: var(--rose-pine-dawn-subtle);
+}
+
+.rose-pine-dawn .hljs-punctuation.hljs-accessor {
+  color: var(--rose-pine-dawn-pine);
+}
+
+.rose-pine-dawn .hljs-punctuation.hljs-definition.hljs-string {
+  color: var(--rose-pine-dawn-gold);
+}
+
+.rose-pine-dawn .hljs-punctuation.hljs-definition.hljs-tag {
+  color: var(--rose-pine-dawn-muted);
+}
+
+.rose-pine-dawn .hljs-storage.hljs-type,
+.rose-pine-dawn .hljs-storage.hljs-modifier {
+  color: var(--rose-pine-dawn-pine);
+}
+
+.rose-pine-dawn .hljs-string {
+  color: var(--rose-pine-dawn-gold);
+}
+
+.rose-pine-dawn .hljs-support {
+  color: var(--rose-pine-dawn-foam);
+}
+
+.rose-pine-dawn .hljs-support.hljs-constant {
+  color: var(--rose-pine-dawn-gold);
+}
+
+.rose-pine-dawn .hljs-support.hljs-function {
+  font-style: italic;
+  color: var(--rose-pine-dawn-love);
+}
+
+.rose-pine-dawn .hljs-variable {
+  font-style: italic;
+  color: var(--rose-pine-dawn-rose);
+}
+
+.rose-pine-dawn .hljs-variable.hljs-other,
+.rose-pine-dawn .hljs-variable.hljs-language,
+.rose-pine-dawn .hljs-variable.hljs-function,
+.rose-pine-dawn .hljs-variable.hljs-argument {
+    /* Shiki uses text color for these, overriding the general variable italic rose */
+    font-style: normal; /* Remove italic inherited from general variable */
+    color: var(--rose-pine-dawn-text);
+}
+
+
+.rose-pine-dawn .hljs-variable.hljs-parameter {
+  color: var(--rose-pine-dawn-iris);
+}
+
+
+/* Mapping Shiki colors to mdbook theme variables and general styles */
+.rose-pine-dawn {
+  --bg: var(--rose-pine-dawn-base);
+  --fg: var(--rose-pine-dawn-text);
+  --sidebar-bg: var(--rose-pine-dawn-base); /* sideBar.background */
+  --sidebar-fg: var(--rose-pine-dawn-subtle); /* sideBar.foreground */
+  --sidebar-non-existant: var(--rose-pine-dawn-muted); /* Approximation */
+  --sidebar-active: var(--rose-pine-dawn-text); /* activityBar.foreground */
+  --sidebar-spacer: var(--rose-pine-dawn-border); /* Approximation */
+  --scrollbar: var(--rose-pine-dawn-muted); /* Approximation */
+  --icons: var(--rose-pine-dawn-subtle); /* icon.foreground */
+  --icons-hover: var(--rose-pine-dawn-text); /* Approximation */
+  --links: var(--rose-pine-dawn-iris); /* textLink.foreground */
+  --inline-code-color: var(--rose-pine-dawn-text); /* code color */
+  --theme-popup-bg: var(--rose-pine-dawn-light); /* menu.background, dropdown.background, etc. */
+  --theme-popup-border: var(--rose-pine-dawn-faint-border); /* menu.border, dropdown.border, etc. */
+  --theme-hover: var(--rose-pine-dawn-inactive-selection); /* list.hoverBackground, toolbar.hoverBackground, etc. */
+  --quote-bg: var(--rose-pine-dawn-light); /* textBlockQuote.background */
+  --quote-border: var(--rose-pine-dawn-faint-border); /* textBlockQuote.border */
+  --table-border-color: var(--rose-pine-dawn-faint-border); /* Approximation */
+  --table-header-bg: var(--rose-pine-dawn-border); /* keybindingTable.headerBackground, Approximation */
+  --table-alternate-bg: var(--rose-pine-dawn-light); /* keybindingTable.rowsBackground, Approximation */
+  --searchbar-border-color: var(--rose-pine-dawn-border); /* input.border, Approximation */
+  --searchbar-bg: var(--rose-pine-dawn-light); /* input.background, Approximation */
+  --searchbar-fg: var(--rose-pine-dawn-text); /* input.foreground, Approximation */
+  --searchbar-shadow-color: var(--rose-pine-dawn-light); /* scrollbar.shadow, widget.shadow, Approximation */
+  --searchresults-header-fg: var(--rose-pine-dawn-text); /* Approximation */
+  --searchresults-border-color: var(--rose-pine-dawn-border); /* peekView.border, Approximation */
+  --searchresults-li-bg: var(--rose-pine-dawn-base); /* peekViewResult.background, Approximation */
+  --search-mark-bg: var(--rose-pine-dawn-gold); /* editor.findMatchBackground (partially) */
+  --warning-border: var(--rose-pine-dawn-gold); /* problemsWarningIcon.foreground, Approximation */
+  --color-scheme: light;
+  /* Filter approximations - need testing with actual icons */
+  --copy-button-filter: invert(30%) sepia(10%) saturate(1161%) hue-rotate(197deg) brightness(94%) contrast(89%); /* Approximation for Rose Pine Dawn text */
+  --copy-button-filter-hover: invert(30%) sepia(10%) saturate(1161%) hue-rotate(197deg) brightness(94%) contrast(89%); /* Approximation for Rose Pine Dawn text */
+}
+
+/* Additional general styles derived from Shiki colors */
+.rose-pine-dawn a {
+    color: var(--rose-pine-dawn-iris); /* textLink.foreground */
+}
+
+.rose-pine-dawn a:hover {
+    color: var(--rose-pine-dawn-iris); /* textLink.activeForeground */
+    text-decoration: underline;
+}
+
+
+.rose-pine-dawn code {
+  color: var(--rose-pine-dawn-text);
+  background: var(--rose-pine-dawn-light); /* textCodeBlock.background */
+}
+
+.rose-pine-dawn blockquote {
+  background: var(--rose-pine-dawn-light); /* textBlockQuote.background */
+  border-left: 4px solid var(--rose-pine-dawn-faint-border); /* textBlockQuote.border */
+  color: var(--rose-pine-dawn-text); /* text color */
+}
+
+.rose-pine-dawn blockquote blockquote {
+  border-color: var(--rose-pine-dawn-faint-border); /* textBlockQuote.border */
+  /* Add top/bottom border as in Latte CSS if desired, or just keep left */
+   border-top: 0.1em solid var(--rose-pine-dawn-muted); /* Using Muted as a softer border */
+   border-bottom: 0.1em solid var(--rose-pine-dawn-muted); /* Using Muted as a softer border */
+   border-left: 4px solid var(--rose-pine-dawn-faint-border);
+}
+
+.rose-pine-dawn hr {
+  border-color: var(--rose-pine-dawn-border); /* Border color */
+  border-style: solid;
+}
+
+.rose-pine-dawn del {
+  color: var(--rose-pine-dawn-subtle); /* invalid.deprecated, gitDecoration.deletedResourceForeground */
+}
+
+/* Refine highlight.js classes based on Shiki tokenColors mappings where they exist and differ from initial mapping */
+
+.rose-pine-dawn .hljs-built_in {
+  color: var(--rose-pine-dawn-pine); /* Often similar to keywords or support functions */
+}
+
+.rose-pine-dawn .hljs-type {
+  color: var(--rose-pine-dawn-foam); /* entity.name.type */
+}
+
+.rose-pine-dawn .hljs-literal {
+  color: var(--rose-pine-dawn-rose); /* constant.language, constant.numeric */
+}
+
+.rose-pine-dawn .hljs-number {
+  color: var(--rose-pine-dawn-rose); /* constant.numeric */
+}
+
+.rose-pine-dawn .hljs-operator {
+  color: var(--rose-pine-dawn-pine); /* punctuation.accessor, similar to keywords */
+}
+
+.rose-pine-dawn .hljs-property {
+  color: var(--rose-pine-dawn-foam); /* meta.property-name.css, support */
+}
+
+.rose-pine-dawn .hljs-regexp {
+  color: var(--rose-pine-dawn-gold); /* String color */
+}
+
+.rose-pine-dawn .hljs-string {
+  color: var(--rose-pine-dawn-gold); /* string, punctuation.definition.string, support.constant */
+}
+
+.rose-pine-dawn .hljs-char.escape_ {
+  color: var(--rose-pine-dawn-gold); /* string color */
+}
+
+.rose-pine-dawn .hljs-subst {
+  color: var(--rose-pine-dawn-text); /* variable.other, variable.language, etc. */
+}
+
+.rose-pine-dawn .hljs-symbol {
+  color: var(--rose-pine-dawn-rose); /* entity.name */
+}
+
+.rose-pine-dawn .hljs-variable.language_ {
+  color: var(--rose-pine-dawn-text); /* variable.language */
+  font-style: normal;
+}
+
+.rose-pine-dawn .hljs-variable.constant_ {
+  color: var(--rose-pine-dawn-rose); /* constant.language, constant.numeric */
+}
+
+.rose-pine-dawn .hljs-title {
+  color: var(--rose-pine-dawn-rose); /* entity.name */
+}
+
+.rose-pine-dawn .hljs-title.class_ {
+  color: var(--rose-pine-dawn-foam); /* entity.name.type, entity.name.class (if exists) */
+}
+
+.rose-pine-dawn .hljs-title.function_ {
+  color: var(--rose-pine-dawn-rose); /* entity.name.function (if exists) or entity.name */
+}
+
+.rose-pine-dawn .hljs-params {
+  color: var(--rose-pine-dawn-text); /* variable.other, variable.parameter (partially) */
+}
+
+.rose-pine-dawn .hljs-doctag {
+  color: var(--rose-pine-dawn-subtle); /* comment color */
+}
+
+.rose-pine-dawn .hljs-section {
+  color: var(--rose-pine-dawn-foam); /* entity.name.section */
+}
+
+.rose-pine-dawn .hljs-tag {
+  color: var(--rose-pine-dawn-foam); /* entity.name.tag */
+}
+
+.rose-pine-dawn .hljs-name {
+  color: var(--rose-pine-dawn-rose); /* entity.name */
+}
+
+.rose-pine-dawn .hljs-attr {
+  color: var(--rose-pine-dawn-iris); /* entity.other.attribute-name */
+}
+
+.rose-pine-dawn .hljs-attribute {
+  color: var(--rose-pine-dawn-iris); /* entity.other.attribute-name */
+}
+
+.rose-pine-dawn .hljs-bullet {
+   color: var(--rose-pine-dawn-gold); /* Often list/markup related, using string/gold as approximation */
+}
+
+.rose-pine-dawn .hljs-code {
+  color: var(--rose-pine-dawn-text); /* inline code color */
+}
+
+
+.rose-pine-dawn .hljs-formula {
+   color: var(--rose-pine-dawn-iris); /* similar to parameters or imports */
+}
+
+.rose-pine-dawn .hljs-link {
+   color: var(--rose-pine-dawn-iris); /* textLink.foreground */
+}
+
+.rose-pine-dawn .hljs-quote {
+  color: var(--rose-pine-dawn-muted); /* comment color or blockquote related */
+  font-style: italic;
+}
+
+.rose-pine-dawn .hljs-selector-tag {
+  color: var(--rose-pine-dawn-foam); /* entity.name.tag */
+}
+
+.rose-pine-dawn .hljs-selector-id {
+  color: var(--rose-pine-dawn-rose); /* entity.name or similar prominent color */
+}
+
+.rose-pine-dawn .hljs-selector-class {
+  color: var(--rose-pine-dawn-gold); /* string or similar */
+}
+
+.rose-pine-dawn .hljs-selector-attr {
+   color: var(--rose-pine-dawn-iris); /* entity.other.attribute-name */
+}
+
+.rose-pine-dawn .hljs-selector-pseudo {
+  color: var(--rose-pine-dawn-foam); /* entity.name.tag or similar */
+}
+
+.rose-pine-dawn .hljs-template-tag,
+.rose-pine-dawn .hljs-template-variable {
+   color: var(--rose-pine-dawn-rose); /* variable or entity.name */
+}
+
+
+/* Specific overrides or additions based on Shiki where highlight.js classes might not map directly */
+
+/* Example: If Shiki shows a specific color for function calls not covered by title.function_ */
+/* You would need to find the corresponding highlight.js scope if one exists and add a rule */
+/* .rose-pine-dawn .hljs-function-call { color: ...; } */
+
+/* Adjusting additions/deletions based on Shiki diff colors */
+.rose-pine-dawn .hljs-addition {
+  color: var(--rose-pine-dawn-foam); /* markup.inserted.diff */
+  background: rgba(86, 148, 159, 0.15); /* Using Foam with transparency */
+}
+
+.rose-pine-dawn .hljs-deletion {
+  color: var(--rose-pine-dawn-love); /* markup.deleted.diff */
+  background: rgba(180, 99, 122, 0.15); /* Using Love with transparency */
+}
+
+/* Ensure inline code within headings and links uses the correct color */
+.rose-pine-dawn :is(h1, h2, h3, h4, h5, h6) code {
+  color: var(--rose-pine-dawn-text);
+}
+
+.rose-pine-dawn a code {
+  color: var(--rose-pine-dawn-iris); /* textLink.foreground */
+}
+
+/* Ace Editor specific styles if needed, mapped from Shiki editor.* colors */
+/* These might not be directly applicable to standard mdbook unless Ace is used */
+.rose-pine-dawn .ace_gutter {
+  color: var(--rose-pine-dawn-subtle); /* editorLineNumber.foreground */
+  background: var(--rose-pine-dawn-base); /* editorGutter.background */
+}
+
+.rose-pine-dawn .ace_gutter-active-line.ace_gutter-cell {
+  color: var(--rose-pine-dawn-text); /* editorLineNumber.activeForeground */
+  background: var(--rose-pine-dawn-base); /* editorGutter.background */
+}
+
+.rose-pine-dawn .tooltiptext {
+  background: var(--rose-pine-dawn-light); /* editorHoverWidget.background */
+  color: var(--rose-pine-dawn-subtle); /* editorHoverWidget.foreground */
+}
